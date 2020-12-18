@@ -56,7 +56,8 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
   }
 }
 
-export const WETH = {
+type WETH = { [chainId in ChainId]: Token }
+export const WETH: WETH = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET,
     '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
@@ -100,10 +101,18 @@ export const WETH = {
     18,
     'WHT',
     'Wrapped HT'
+  ),
+  [ChainId.MATIC_MUMBAI]: new Token(
+    ChainId.MATIC_MUMBAI,
+    '0xa1DCF14e05e43D62861cdc74641Fc800B2684f76',
+    18,
+    'WETH',
+    'Wrapped Ether'
   )
 }
 
-export const USDT = {
+type Tokens = { [chainId in ChainId]: string }
+export const USDT: Tokens = {
   [ChainId.MAINNET]: '',
   [ChainId.ROPSTEN]: '',
   [ChainId.RINKEBY]: '',
@@ -111,9 +120,10 @@ export const USDT = {
   [ChainId.KOVAN]: '',
   [ChainId.BSC_MAINNET]: '0x55d398326f99059fF775485246999027B3197955',
   [ChainId.BSC_TESTNET]: '0x337610d27c682E347C9cD60BD4b3b107C9d34dDd',
-  [ChainId.HECO_TESTNET]: ''
+  [ChainId.HECO_TESTNET]: '',
+  [ChainId.MATIC_MUMBAI]: ''
 }
-export const BUSD = {
+export const BUSD: Tokens = {
   [ChainId.MAINNET]: '',
   [ChainId.ROPSTEN]: '',
   [ChainId.RINKEBY]: '',
@@ -121,5 +131,6 @@ export const BUSD = {
   [ChainId.KOVAN]: '',
   [ChainId.BSC_MAINNET]: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
   [ChainId.BSC_TESTNET]: '0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee',
-  [ChainId.HECO_TESTNET]: ''
+  [ChainId.HECO_TESTNET]: '',
+  [ChainId.MATIC_MUMBAI]: ''
 }

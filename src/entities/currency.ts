@@ -3,7 +3,8 @@ import JSBI from 'jsbi'
 import { ChainId, SolidityType } from '../constants'
 import { validateSolidityTypeInstance } from '../utils'
 
-const CurrencyName = {
+type CurrencyName = { [chainId in ChainId]: string } 
+const CurrencyName: CurrencyName = {
   [ChainId.MAINNET]: 'ETH',
   [ChainId.ROPSTEN]: 'ETH',
   [ChainId.RINKEBY]: 'ETH',
@@ -11,7 +12,8 @@ const CurrencyName = {
   [ChainId.KOVAN]: 'ETH',
   [ChainId.BSC_MAINNET]: 'BNB',
   [ChainId.BSC_TESTNET]: 'BNB',
-  [ChainId.HECO_TESTNET]: 'HT'
+  [ChainId.HECO_TESTNET]: 'HT',
+  [ChainId.MATIC_MUMBAI]: 'MATIC'
 }
 
 /**
